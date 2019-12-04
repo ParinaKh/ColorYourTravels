@@ -20,3 +20,32 @@
 .App-link {
   color: #09d3ac;
 }
+
+.nav-main {
+  height: 60px;
+  width: 100vw;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  text-decoration: none;
+  position: fixed;
+}
+
+.nav-link {
+  margin: 20px;
+  color: white;
+  font-family: "Abel", sans-serif;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.map {
+  position: fixed;
+  margin-left: 55vw;
+  margin-top: 20vh;
+}
+
+.map-container {
+}
