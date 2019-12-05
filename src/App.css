@@ -33,6 +33,7 @@
   align-items: center;
   text-decoration: none;
   position: fixed;
+  z-index: 100;
 }
 
 .nav-link {
@@ -58,7 +59,8 @@
   top: 50%;
 }
 
-.section1 {}
+.section1 {
+}
 
 /* ItineraryPlanner.jsx  */
 
@@ -77,18 +79,17 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  margin: 0 50px 0 50px
+  margin: 0 50px 0 50px;
 }
 
 .map-container {
   z-index: 100;
-
 }
 
 .accomodation {
-  margin: 30px
+  margin: 30px;
 }
 
 .map {
-  margin: 30px
+  margin: 30px;
 }

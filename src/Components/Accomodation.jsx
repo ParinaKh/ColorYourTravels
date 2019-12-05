@@ -26,6 +26,8 @@ const addAccomodation = () => {
       <form onSubmit={handleSubmit} onChange={handleChange}>
         <label htmlFor="Name">Name</label>
         <input id="Name" type="text" name="Name" placeholder="Name" />
+        <label htmlFor="Name">Address</label>
+        <input id="address" type="text" name="address" placeholder="Address" />
         <label htmlFor="BookingRef">Booking Reference</label>
         <input type="text" name="BookingRef" placeholder="BookingRef" />
         <label htmlFor="checkIn">Check-in</label>

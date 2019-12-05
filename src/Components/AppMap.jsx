@@ -1,5 +1,14 @@
 import React from "react";
-import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
+import {
+  GoogleMap,
+  withScriptjs,
+  withGoogleMap,
+  InfoWindow,
+  Marker
+} from "react-google-maps";
+import Geocode from "react-geocode";
+Geocode.setApiKey("AIzaSyAFnMPcwI9LXmUY8egBlCdXUSNek7gW0s4");
+Geocode.enableDebug();
 
 function Map() {
   return (
