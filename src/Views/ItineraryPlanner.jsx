@@ -27,7 +27,9 @@ const ItineraryPlanner = () => {
             </div>
           </div>
         </div>
-        <div className="map-container">{/* <AppMap /> */}</div>
+        <div className="map-container">
+          <AppMap />
+        </div>
 
         {/* <Autocomplete /> */}
       </div>
