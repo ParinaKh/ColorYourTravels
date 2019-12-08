@@ -1,17 +1,23 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import Transportation from "../Components/Transportation";
+import Accomodation from "../Components/Accomodation";
+import Activity from "../Components/Activity";
 
-export default function Accomodation(props) {
-  const [accomodations, setAccomodations] = useState([]);
+import AppMap from "../Components/AppMap";
+import GooglePlaces from "../Components/GooglePlaces";
+
+export default function CreateItinerary(props) {
+  const [itineraries, setItineraries] = useState([]);
   const [formValues, setFormValues] = useState({});
   const selectRef = useRef();
 
-  console.log(props);
+  // console.log(props);
   useEffect(() => {
     axios
       .get(process.env.REACT_APP_BACKEND_URL + "/itinerary-planner")
       .then(res => {
-        setAccomodations(res.data);
+        setItineraries(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -21,8 +27,8 @@ export default function Accomodation(props) {
   const handleSubmit = e => {
     e.preventDefault();
     // console.log("i have been submitted");
-    if (!formValues.accomodation) {
-      formValues.accomodation = selectRef.current.value;
+    if (!formValues.itineraries) {
+      formValues.itineraries = selectRef.current.value;
     }
 
     axios
@@ -41,20 +47,28 @@ export default function Accomodation(props) {
 
   return (
     <div>
-      <h2>Accomodation</h2>
+      <h2>Create an Itinerary</h2>
       <form onSubmit={handleSubmit} onChange={handleChange}>
-        <label htmlFor="name">Name</label>
-        <input id="name" type="text" name="name" placeholder="Name" />
-        <label htmlFor="name">Address</label>
-        <input id="address" type="text" name="address" placeholder="Address" />
-        <label htmlFor="BookingRef">Booking Reference</label>
-        <input type="text" name="bookingRef" placeholder="BookingRef" />
+        <label htmlFor="steps">Add a step</label>
+        <input id="steps" type="text" name="steps" placeholder="Step" />
         <label htmlFor="checkIn">Check-in</label>
         <input type="date" name="checkIn" placeholder="date" />
         <label htmlFor="checkOut">Check-out</label>
         <input type="date" name="checkOut" placeholder="date" />
         <button>Add</button>
       </form>
+      {/* <div className="transportation">
+        <Transportation />
+      </div>
+      <div className="accomodation">
+        <Accomodation />
+      </div>
+      <div className="activity">
+        <Activity />
+      </div>
+      <div>
+        <GooglePlaces />
+      </div> */}
     </div>
   );
 }
