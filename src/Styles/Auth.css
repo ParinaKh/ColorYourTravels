@@ -1,0 +1,29 @@
+.sign-up,
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/travel-route.jpg");
+    background-size: cover;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+    align-items: center;
+    padding: 30px;
+    width: 70vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+}
+
+.submit {
+    font-size: 20px;
+    margin-top: 30px;
+    height: 35px;
+    align-items: center;
+}

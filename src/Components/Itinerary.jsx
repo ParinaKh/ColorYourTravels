@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-import "../App.css";
+import "../Styles/ItineraryPlanner.css";
 import axios from "axios";
 
 function CreateItinerary() {

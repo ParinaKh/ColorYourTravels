@@ -26,7 +26,7 @@ const NavMain = () => {
             <NavLink
               className="link"
               activeClassName="is-active"
-              to="/previous-travels"
+              to="/All-my-Itineraries"
             >
               All my Itineraries
             </NavLink>

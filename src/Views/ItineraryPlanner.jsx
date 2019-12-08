@@ -14,7 +14,7 @@ const ItineraryPlanner = () => {
   return (
     <div className="itinerary-container">
       <Itinerary />
-      {/* <CreateItinerary /> */}
+      <CreateItinerary />
 
       {/* <div className="transportation">
               <Transportation />

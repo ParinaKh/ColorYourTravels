@@ -40,7 +40,7 @@
 
 .title {
     left: 50%;
-    border: solid 3px white;
+    border: solid 6px white;
     color: white;
     padding: 30px;
     position: absolute;
@@ -48,6 +48,7 @@
     transform: translate(-50%, -50%);
     top: 50%;
     text-shadow: black 0.2em 0.1em 0.2em;
+    font-size: 3em;
 }
 
 .section1 {}
