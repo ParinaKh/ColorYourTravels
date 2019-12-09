@@ -1,0 +1,66 @@
+/* Home.jsx */
+* {
+    font-family: "Abel", sans-serif;
+}
+
+.nav-main {
+    height: 65px;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    text-decoration: none;
+    position: fixed;
+    z-index: 100;
+    justify-content: space-between;
+}
+
+.nav-link {
+    margin: 25px;
+    color: white;
+    font-family: "Abel", sans-serif;
+    text-decoration: none;
+    font-size: 23px;
+}
+
+.nav-section {
+    display: flex
+}
+
+.link {
+    text-decoration: none;
+    color: white
+}
+
+.homepage-image {
+    width: 100vw;
+}
+
+.title {
+    left: 50%;
+    border: solid 6px white;
+    color: white;
+    padding: 30px;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    text-shadow: black 0.2em 0.1em 0.2em;
+    font-size: 3em;
+}
+
+.section1 {}
+
+.all-containers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.text-container {
+    width: 350px;
+    padding: 50px;
+    font-size: 23px
+}

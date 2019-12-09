@@ -33,6 +33,8 @@ const addActivity = () => {
         />
         <label htmlFor="BookingRef">Booking Reference</label>
         <input type="text" name="BookingRef" placeholder="BookingRef" />
+        <label htmlFor="date">Date</label>
+        <input type="date" name="date" placeholder="date" />
         <button>Add</button>
       </form>
     </div>

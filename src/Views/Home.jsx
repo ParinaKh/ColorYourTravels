@@ -1,6 +1,6 @@
 import React from "react";
 import homeImage from "../images/travel-plan.jpg";
-import ItineraryPlanner from "./ItineraryPlanner";
+import "../Styles/Home.css";
 
 export default function Home() {
   return (
@@ -8,9 +8,19 @@ export default function Home() {
       <section className="section1">
         <h1 className="title">SIGN UP TO START THE JOURNEY</h1>
         <img className="homepage-image" src={homeImage} alt={"homeImage"} />
-
-        <div>
-          <ItineraryPlanner />
+        <div className="all-containers">
+          <div className="text-container">
+            <h2 className="home-subtitle">Get a personalized plan</h2>
+            <p>A complete day by day Itinerary based on your preferences</p>
+          </div>
+          <div className="text-container">
+            <h2 className="home-subtitle">Customize it</h2>
+            <p>Refine your plan.</p>
+          </div>
+          <div className="text-container">
+            <h2 className="home-subtitle">Manage it</h2>
+            <p>All your bookings in one place</p>
+          </div>
         </div>
       </section>
     </div>

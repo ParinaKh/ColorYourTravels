@@ -7,16 +7,42 @@ const NavMain = () => {
   return (
     <div>
       <nav className="nav-main">
-        <div className="nav-link">
-          <NavLink exact to="/">
-            Home
-          </NavLink>
+        <div className="nav-section">
+          <div className="nav-link">
+            <NavLink exact className="link" activeClassName="is-active" to="/">
+              Home
+            </NavLink>
+          </div>
+          <div className="nav-link">
+            <NavLink
+              className="link"
+              activeClassName="is-active"
+              to="/itinerary-planner"
+            >
+              Itinerary Planner
+            </NavLink>
+          </div>
+          <div className="nav-link">
+            <NavLink
+              className="link"
+              activeClassName="is-active"
+              to="/All-my-Itineraries"
+            >
+              All my Itineraries
+            </NavLink>
+          </div>
         </div>
-        <div className="nav-link">
-          <NavLink to="/itinerary-planner">Trip Planner</NavLink>
-        </div>
-        <div className="nav-link">
-          <NavLink to="/previous-travels">Previous Travels</NavLink>
+        <div className="nav-section">
+          <div className="nav-link">
+            <NavLink className="link" activeClassName="is-active" to="/sign-in">
+              SignIn
+            </NavLink>
+          </div>
+          <div className="nav-link">
+            <NavLink className="link" activeClassName="is-active" to="/sign-up">
+              SignUp
+            </NavLink>
+          </div>
         </div>
       </nav>
     </div>
