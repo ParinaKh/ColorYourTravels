@@ -29,12 +29,12 @@ function CreateItinerary(props) {
     e.preventDefault();
 
     axios
-      .post(process.env.REACT_APP_BACKEND_URL + "/itinerary/", fields)
+      .post(process.env.REACT_APP_BACKEND_URL + "/itinerary", fields)
       .then(res => {
         console.log("here3", res.data);
         props.history.push("/itinerary/" + res.data._id); // renvoie vers URL FRONT
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log("err", err));
   }
 
   function handleAdd() {

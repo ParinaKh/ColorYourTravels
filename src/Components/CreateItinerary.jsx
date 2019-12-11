@@ -26,7 +26,7 @@ export default function CreateItinerary(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log("i have been submitted");
+    console.log("i have been submitted");
     if (!formValues.itineraries) {
       formValues.itineraries = selectRef.current.value;
     }
