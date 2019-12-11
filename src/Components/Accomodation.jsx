@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import React, { useState, useEffect } from "react";
+import APIHandler from "./../api/ApiHandler";
 import { withRouter } from "react-router-dom";
 import "../Styles/ItineraryPlanner.css";
 import axios from "axios";
 
-function Accomodation({ itinerary, stepCount }) {
-  const [accomodations, setAccomodations] = useState([]);
+function Accomodation({ itinerary, stepCount, setItinerary, creationClbk }) {
   const [accomodation, setAccomodation] = useState({
-    name: "",
-    address: "",
-    bookingRef: ""
-    // checkIn: "",
-    // checkOut: ""
+    name: "foo",
+    address: "1 rue fake",
+    bookingRef: "12345",
+    checkIn: Date.now(),
+    checkOut: ""
   });
 
   function handleChange(e, i) {
@@ -19,67 +18,65 @@ function Accomodation({ itinerary, stepCount }) {
       ...accomodation,
       [e.target.name]: e.target.value
     });
-    // setAccomodations([...accomodations, ([e.target.name]: e.target.value)]);
   }
-
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `${process.env.REACT_APP_BACKEND_URL}/itinerary/${props.itineraryID}`
-  //     )
-  //     .then(apiRes => {
-  //       setSteps(apiRes.data.steps);
-  //       setAccomodations(apiRes.data.steps[stepCount].accomodation);
-  //     })
-
-  //     .catch(apiErr => console.error(apiErr));
-  //   return () => {};
-  // }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
-    setAccomodations([...accomodations, accomodation]);
-    setAccomodation({
-      name: "",
-      address: "",
-      bookingRef: ""
-      // checkIn: "",
-      // checkOut: ""
-    });
-    // console.log(props.itineraryID, "this");
-    axios
-      .post(
-        process.env.REACT_APP_BACKEND_URL +
-          "/accomodation/" +
-          itinerary._id +
-          "/" +
-          itinerary.steps[stepCount]._id,
-        accomodation
-      )
+
+    APIHandler.post(
+      "/accomodation/" + itinerary._id + "/" + itinerary.steps[stepCount]._id,
+      accomodation
+    )
       .then(res => {
-        console.log(res);
-        // console.log("accomodation", res.data);
-        // props.history.push("/accomodation/" + res.data._id); // renvoie vers URL FRONT
+        console.log("itinerary", res.data);
+        creationClbk(res.data);
       })
       .catch(err => console.log(err));
   }
 
   return (
     <div>
-      {/* <button onClick={changeStatus}>Add Accomodation</button> */}
-
       <h2>Accomodation</h2>
       <form onSubmit={handleSubmit} onChange={handleChange}>
-        <label htmlFor="name">Name</label>
-        <input id="name" type="text" name="name" placeholder="Name" />
-        <label htmlFor="name">Address</label>
-        <input id="address" type="text" name="address" placeholder="Address" />
+        <label htmlFor="name" className="accomodation-name">
+          Name
+        </label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Name"
+          defaultValue={accomodation.name}
+        />
+        <label htmlFor="address">Address</label>
+        <input
+          id="address"
+          type="text"
+          name="address"
+          placeholder="Address"
+          defaultValue={accomodation.address}
+        />
         <label htmlFor="BookingRef">Booking Reference</label>
-        <input type="text" name="bookingRef" placeholder="BookingRef" />
+        <input
+          type="text"
+          name="bookingRef"
+          placeholder="BookingRef"
+          defaultValue={accomodation.bookingRef}
+        />
         <label htmlFor="checkIn">Check-in</label>
-        <input type="date" name="checkIn" placeholder="date" />
+        <input
+          type="date"
+          name="checkIn"
+          placeholder="date"
+          defaultValue={accomodation.checkIn}
+        />
         <label htmlFor="checkOut">Check-out</label>
-        <input type="date" name="checkOut" placeholder="date" />
+        <input
+          type="date"
+          name="checkOut"
+          placeholder="date"
+          defaultValue={accomodation.checkOut}
+        />
         <button>Add</button>
       </form>
     </div>

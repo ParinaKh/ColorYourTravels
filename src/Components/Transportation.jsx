@@ -4,9 +4,8 @@ import { withRouter } from "react-router-dom";
 import "../Styles/ItineraryPlanner.css";
 import axios from "axios";
 
-function Transportation({ itinerary, stepCount, setItinerary }) {
+function Transportation({ itinerary, stepCount, setItinerary, creationClbk }) {
   const [transportations, setTransportations] = useState([]);
-
   const [transport, setTransport] = useState({
     startPoint: "",
     endPoint: "",
@@ -33,7 +32,7 @@ function Transportation({ itinerary, stepCount, setItinerary }) {
       bookingRef: "",
       departure: ""
     });
-    // console.log(props.itineraryID, "this");
+
     axios
       .post(
         process.env.REACT_APP_BACKEND_URL +
@@ -44,13 +43,11 @@ function Transportation({ itinerary, stepCount, setItinerary }) {
         transport
       )
       .then(res => {
-        setItinerary(res);
         console.log("itinerary", res.data);
-        // props.history.push("/itinerary/" + res.data._id); // renvoie vers URL FRONT
+        creationClbk(res.data);
       })
       .catch(err => console.log(err));
   }
-  // console.log(steps);
 
   return (
     <div>
@@ -64,8 +61,9 @@ function Transportation({ itinerary, stepCount, setItinerary }) {
           type="text"
           className="select"
           name="transportation"
+          defaultValue="-1"
         >
-          <option value="-1" disabled selected>
+          <option value="-1" disabled>
             Choose a transport mode
           </option>
           <option value="flight">Flight</option>

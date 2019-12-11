@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import APIHandler from "./../api/ApiHandler";
 import "../Styles/ItineraryPlanner.css";
 
-const AccomodationCard = ({ accomodation }) => {
+const AccomodationCard = ({ resourceId }) => {
+  const [accomodation, setAccomodation] = useState(null);
+
   function handleSelect(e, i) {
     e.preventDefault();
   }
 
+  useEffect(() => {
+    APIHandler.get(`/accomodation/${resourceId}`).then(apiRes => {
+      setAccomodation(apiRes.data);
+    });
+  }, []);
+
   // console.log(steps);
+  if (!accomodation) return null;
 
   return (
     <div className="accomodation-card">
