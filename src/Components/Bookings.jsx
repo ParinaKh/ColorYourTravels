@@ -4,6 +4,8 @@ import Accomodation from "../Components/Accomodation";
 import Activity from "../Components/Activity";
 import GeoLine from "../Components/GeoLine";
 import TransportationCard from "./TransportationCard";
+import AccomodationCard from "./AccomodationCard";
+import ActivityCard from "./ActivityCard";
 import axios from "axios";
 
 export default function Bookings(props) {
@@ -36,21 +38,44 @@ export default function Bookings(props) {
         setStepCount={setStepCount}
         stepCount={stepCount}
       />
-
       <div className="booking-planner">
         <Transportation
           itinerary={itinerary}
           stepCount={stepCount}
           setItinerary={setItinerary}
         />
-        <Accomodation itinerary={itinerary} stepCount={stepCount} />
-        <Activity itinerary={itinerary} stepCount={stepCount} />
+        <Accomodation
+          itinerary={itinerary}
+          stepCount={stepCount}
+          setItinerary={setItinerary}
+        />
+        <Activity
+          itinerary={itinerary}
+          stepCount={stepCount}
+          setItinerary={setItinerary}
+        />
       </div>
-      {/* <div style={{ display: "flex" }}> */}
-      {itinerary.steps[stepCount].transportation.map((transportation, i) => (
-        <TransportationCard key={i} transportation={transportation} />
-      ))}
+      <div className="transportation-cards">
+        {" "}
+        <p>Transportations</p>
+        {itinerary.steps[stepCount].transportation.map((transportation, i) => (
+          <TransportationCard key={i} transportation={transportation} />
+        ))}
+      </div>
+      <div className="accomodation-cards">
+        {" "}
+        <p>Accomodations</p>
+        {itinerary.steps[stepCount].accomodation.map((accomodation, i) => (
+          <AccomodationCard key={i} accomodation={accomodation} />
+        ))}
+      </div>
+      <div className="activity-cards">
+        {" "}
+        <p>Activities</p>
+        {itinerary.steps[stepCount].activity.map((activity, i) => (
+          <ActivityCard key={i} activity={activity} />
+        ))}
+      </div>
     </div>
-    // </div>
   );
 }
