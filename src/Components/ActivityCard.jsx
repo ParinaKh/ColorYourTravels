@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import APIHandler from "./../api/ApiHandler";
 import "../Styles/ItineraryPlanner.css";
 
-const ActivityCard = ({ activity }) => {
+const ActivityCard = ({ resourceId }) => {
+  const [activity, setActivity] = useState(null);
   function handleSelect(e, i) {
     e.preventDefault();
   }
+  useEffect(() => {
+    APIHandler.get(`/activity/${resourceId}`).then(apiRes => {
+      setActivity(apiRes.data);
+    });
+  }, []);
 
   // console.log(steps);
+  if (!activity) return null;
 
   return (
     <div className="activity-card">

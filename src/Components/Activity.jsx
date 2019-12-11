@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import APIHandler from "./../api/ApiHandler";
 import { withRouter } from "react-router-dom";
 import "../Styles/ItineraryPlanner.css";
 import axios from "axios";
 
-function Activity({ itinerary, stepCount }) {
-  const [activities, setActivities] = useState([]);
+function Activity({ itinerary, stepCount, setItinerary, creationClbk }) {
   const [activity, setActivity] = useState({
-    description: "",
-    address: ""
+    description: "Yolo",
+    address: "2 rue Fake"
   });
 
   function handleChange(e, i) {
@@ -16,35 +15,21 @@ function Activity({ itinerary, stepCount }) {
       ...activity,
       [e.target.name]: e.target.value
     });
-
-    // setTransportations([...transportations, [e.target.name]: e.target.value)]);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    setActivities([...activities, activity]);
-    setActivity({
-      description: "",
-      address: ""
-    });
-    // console.log(props.itineraryID, "this");
-    axios
-      .post(
-        process.env.REACT_APP_BACKEND_URL +
-          "/activity/" +
-          itinerary._id +
-          "/" +
-          itinerary.steps[stepCount]._id,
-        activity
-      )
+
+    APIHandler.post(
+      "/activity/" + itinerary._id + "/" + itinerary.steps[stepCount]._id,
+      activity
+    )
       .then(res => {
-        console.log(res);
-        // console.log("transport", res.data);
-        // props.history.push("/itinerary/" + res.data._id); // renvoie vers URL FRONT
+        console.log("itinerary", res.data);
+        creationClbk(res.data);
       })
       .catch(err => console.log(err));
   }
-  // console.log(steps);
 
   return (
     <div>

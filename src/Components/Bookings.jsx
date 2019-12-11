@@ -97,9 +97,9 @@ export default function Bookings(props) {
         )}
         {activeForm === "activity" && (
           <ActivityForm
+            creationClbk={addCard}
             itinerary={itinerary}
             stepCount={stepCount}
-            setItinerary={setItinerary}
           />
         )}
       </div>
