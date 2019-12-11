@@ -1,46 +1,76 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import { withRouter } from "react-router-dom";
+import "../Styles/ItineraryPlanner.css";
 import axios from "axios";
 
-export default function Accomodation(props) {
+function Accomodation(props) {
   const [accomodations, setAccomodations] = useState([]);
-  const [formValues, setFormValues] = useState({});
-  const selectRef = useRef();
+  const [accomodation, setAccomodation] = useState({
+    name: "",
+    address: "",
+    bookingRef: ""
+    // checkIn: "",
+    // checkOut: ""
+  });
 
-  console.log(props);
+  const [steps, setSteps] = useState([]);
+  const [stepCount, setStepCount] = useState(0);
+  console.log(props.steps);
+  function handleChange(e, i) {
+    setAccomodation({
+      ...accomodation,
+      [e.target.name]: e.target.value
+    });
+    setAccomodations([...accomodations, ([e.target.name]: e.target.value)]);
+  }
+
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BACKEND_URL + "/itinerary-planner")
-      .then(res => {
-        setAccomodations(res.data);
+      .get(
+        `${process.env.REACT_APP_BACKEND_URL}/itinerary/${props.itineraryID}`
+      )
+      .then(apiRes => {
+        setSteps(apiRes.data.steps);
+        setAccomodations(apiRes.data.steps[stepCount].accomodation);
       })
-      .catch(err => {
-        console.log(err);
-      });
+
+      .catch(apiErr => console.error(apiErr));
+    return () => {};
   }, []);
 
-  const handleSubmit = e => {
+  function handleSubmit(e) {
     e.preventDefault();
-    // console.log("i have been submitted");
-    if (!formValues.accomodation) {
-      formValues.accomodation = selectRef.current.value;
-    }
-
+    setAccomodations([...accomodations, accomodation]);
+    setAccomodation({
+      name: "",
+      address: "",
+      bookingRef: ""
+      // checkIn: "",
+      // checkOut: ""
+    });
+    console.log(props.itineraryID, "this");
     axios
-      .post(process.env.REACT_APP_BACKEND_URL + "/previous-travels", formValues)
+      .post(
+        process.env.REACT_APP_BACKEND_URL +
+          "/accomodation/" +
+          props.itineraryID +
+          "/" +
+          steps[stepCount]._id,
+        accomodation
+      )
       .then(res => {
-        props.history.push("/previous-travels");
+        console.log(res);
+        console.log("accomodation", res.data);
+        // props.history.push("/accomodation/" + res.data._id); // renvoie vers URL FRONT
       })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  const handleChange = e => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
-  };
+      .catch(err => console.log(err));
+  }
 
   return (
     <div>
+      {/* <button onClick={changeStatus}>Add Accomodation</button> */}
+
       <h2>Accomodation</h2>
       <form onSubmit={handleSubmit} onChange={handleChange}>
         <label htmlFor="name">Name</label>
@@ -58,3 +88,5 @@ export default function Accomodation(props) {
     </div>
   );
 }
+
+export default withRouter(Accomodation);

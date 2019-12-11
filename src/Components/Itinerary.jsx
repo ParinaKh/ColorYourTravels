@@ -1,44 +1,40 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-
+import { withRouter } from "react-router-dom";
 import "../Styles/ItineraryPlanner.css";
 import axios from "axios";
 
-function CreateItinerary() {
-  const [fields, setFields] = useState({});
-  const [steps, setSteps] = useState([{ value: null }]);
+function CreateItinerary(props) {
+  const [fields, setFields] = useState({
+    steps: []
+  });
 
-  // function handleChange(i, event) {
-  //   const values = [...steps];
-  //   values[i].value = event.target.value;
-  //   setSteps(values);
-  // }
+  const [steps, setSteps] = useState([]);
 
   function handleChange(e, i) {
-    // const values = [...steps];
-    // values[i].value = e.target.value;
-    // setSteps(values);
-    setFields({ ...fields, [e.target.name]: e.target.value });
-    setSteps([...steps], e.target.value);
+    console.log(fields);
+    if (e.target.name === "steps") {
+      const stepCopy = [...fields.steps];
+      stepCopy[i] = { city: e.target.value };
+      setFields({ ...fields, steps: stepCopy });
+    } else {
+      setFields({ ...fields, [e.target.name]: e.target.value });
+    }
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const copySteps = [...steps];
-    const copyFields = { ...fields };
+  console.log(props);
 
-    const key = e.target.name;
-    const value = e.target.value;
-    console.log(copyFields);
-    console.log(copySteps);
-    // axios
-    // .post(process.env.REACT_APP_BACKEND_URL + "/itineraries", {title, description,[steps: steps]})
-    // .then(res => {
-    //   // const copy = [...steps];
-    //   // setSteps(copy);
-    //   // props.history.push("/all-itineraries") // renvoie vers URL FRONT
-    // })
-    // .catch(err => console.log(err));
+  function handleSubmit(e) {
+    console.log("here");
+    e.preventDefault();
+
+    axios
+      .post(process.env.REACT_APP_BACKEND_URL + "/itinerary/", fields)
+      .then(res => {
+        console.log("here3", res.data);
+        props.history.push("/itinerary/" + res.data._id); // renvoie vers URL FRONT
+      })
+      .catch(err => console.log(err));
   }
 
   function handleAdd() {
@@ -62,22 +58,18 @@ function CreateItinerary() {
           type="text"
           name="title"
           placeholder="Itinerary name"
-          onChange={e => handleChange(e)}
+          onChange={handleChange}
         />
         <label htmlFor="description">Description</label>
         <input
           type="text"
           name="description"
           placeholder="Description"
-          onChange={e => handleChange(e)}
+          onChange={handleChange}
         />
         <label htmlFor="description">Steps</label>
         <div>
-          <button
-            className="add-button"
-            type="button"
-            onClick={() => handleAdd()}
-          >
+          <button className="add-button" type="button" onClick={handleAdd}>
             +
           </button>
         </div>
@@ -91,7 +83,6 @@ function CreateItinerary() {
                 name="steps"
                 // value={field.value || ""}
                 onChange={e => handleChange(e, i)}
-                onSubmit={e => handleSubmit(e, i)}
               />
               <button
                 className="remove-button"
@@ -109,4 +100,4 @@ function CreateItinerary() {
   );
 }
 
-export default CreateItinerary;
+export default withRouter(CreateItinerary);

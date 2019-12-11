@@ -10,11 +10,10 @@ import Accomodation from "../Components/Accomodation";
 import Activity from "../Components/Activity";
 import Itinerary from "../Components/Itinerary";
 
-const ItineraryPlanner = () => {
+const ItineraryPlanner = props => {
   return (
     <div className="itinerary-container">
       <Itinerary />
-      <CreateItinerary />
 
       {/* <div className="transportation">
               <Transportation />

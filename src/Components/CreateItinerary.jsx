@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import Transportation from "../Components/Transportation";
-import Accomodation from "../Components/Accomodation";
-import Activity from "../Components/Activity";
+import Transportation from "./Transportation";
+import Accomodation from "./Accomodation";
+import Activity from "./Activity";
 
 import AppMap from "../Components/AppMap";
 import GooglePlaces from "../Components/GooglePlaces";

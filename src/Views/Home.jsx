@@ -1,6 +1,7 @@
 import React from "react";
 import homeImage from "../images/travel-plan.jpg";
 import "../Styles/Home.css";
+import GooglePlaces from "../Components/GooglePlaces";
 
 export default function Home() {
   return (

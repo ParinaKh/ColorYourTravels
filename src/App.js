@@ -10,6 +10,9 @@ import SignIn from "./Views/SignIn";
 
 // import component (view partials)
 import NavMain from "./Components/NavMain";
+import Itinerary from "./Components/Itinerary";
+import Bookings from "./Components/Bookings";
+// import Accomodations from "./Components/Accomodations";
 
 function App() {
   return (
@@ -18,10 +21,15 @@ function App() {
         <NavMain />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/itinerary-planner" component={ItineraryPlanner} />
-          <Route path="/All-my-Itineraries" component={AllmyItineraries} />
-          <Route path="/Sign-in" component={SignIn} />
-          <Route path="/Sign-up" component={SignUp} />
+          <Route path="/itineraryplanner" component={ItineraryPlanner} />
+          <Route path="/allmyitineraries" component={AllmyItineraries} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route path="/signin" component={SignIn} />
+          {/*
+           */}
+          {/* <Route path="/Sign-up/:id" component={SignUp} /> */}
+          <Route path="/itinerary/:id" component={Bookings} />
+          <Route path="/itineraryplanner" component={Itinerary} />
         </Switch>
       </BrowserRouter>
     </div>

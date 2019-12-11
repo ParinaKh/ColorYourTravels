@@ -76,3 +76,36 @@ input {
     height: 35px;
     align-items: center;
 }
+
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/dino-reichmuth.jpg");
+    background-size: cover;
+}
+
+.booking-planner {
+    display: flex;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.geoline {
+
+    text-align: center;
+    align-content: center;
+    display: flex;
+}
+
+.steps {
+    background-color: white;
+    width: 150px;
+    margin: 30px;
+    text-align: center;
+    font-size: 22px;
+    justify-content: center;
+}

@@ -17,7 +17,7 @@ const NavMain = () => {
             <NavLink
               className="link"
               activeClassName="is-active"
-              to="/itinerary-planner"
+              to="/itineraryplanner"
             >
               Itinerary Planner
             </NavLink>
@@ -26,7 +26,7 @@ const NavMain = () => {
             <NavLink
               className="link"
               activeClassName="is-active"
-              to="/All-my-Itineraries"
+              to="/allmyitineraries"
             >
               All my Itineraries
             </NavLink>
@@ -34,12 +34,12 @@ const NavMain = () => {
         </div>
         <div className="nav-section">
           <div className="nav-link">
-            <NavLink className="link" activeClassName="is-active" to="/sign-in">
+            <NavLink className="link" activeClassName="is-active" to="/signin">
               SignIn
             </NavLink>
           </div>
           <div className="nav-link">
-            <NavLink className="link" activeClassName="is-active" to="/sign-up">
+            <NavLink className="link" activeClassName="is-active" to="/signup">
               SignUp
             </NavLink>
           </div>

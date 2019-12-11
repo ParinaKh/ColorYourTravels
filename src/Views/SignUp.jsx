@@ -4,13 +4,15 @@ import "../Styles/Auth.css";
 
 // custom tools
 import APIHandler from "../api/ApiHandler";
+// import { gunzipSync } from "zlib";
 
 export default class Signup extends Component {
   state = {
     firstName: "firstName",
     lastName: "lastName",
     email: "email@travelUp.com",
-    password: "12345"
+    password: "12345",
+    avatar: ""
   };
 
   handleSubmit = async e => {
@@ -22,34 +24,39 @@ export default class Signup extends Component {
     fd.append("password", this.state.password);
     fd.append("firstName", this.state.firstName);
     fd.append("lastName", this.state.lastName);
+    fd.append("avatar", this.state.avatar);
 
     try {
       await APIHandler.post("/signup", fd);
-      this.props.history.push("/signin");
+      this.props.history.push("/Sign-in");
     } catch (err) {
       console.error(err);
     }
   };
 
   handleChange = e => {
-    console.log(e.target);
-    this.setState({ [e.target.name]: e.target.value });
+    if (e.target.type !== "file")
+      this.setState({ [e.target.name]: e.target.value });
   };
 
-  //   handleImage = e => {
-  //     // console.log("Signup@handle image", e.target.files[0]);
-  //     this.setState({ avatar: e.target.files[0] }, () => {
-  //       const reader = new FileReader();
-  //       reader.onloadend = () => {
-  //         // when the fileREader ends  ...
-  //         const baseString = reader.result; // get the image as a base64 encoded string
-  //         this.setState({ tmpAvatar: baseString }); // set the tmp avatar as an image source before upload
-  //       };
-  //       reader.readAsDataURL(this.state.avatar); // read the file from the local disk
-  //     });
-  //   };
+  handleImage = e => {
+    // return;
+    console.log(e.target.files[0]);
+
+    this.setState({ avatar: e.target.files[0] }, () => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        // when the fileREader ends  ...
+        const baseString = reader.result; // get the image as a base64 encoded string
+        this.setState({ tmpAvatar: baseString }); // set the tmp avatar as an image source before upload
+      };
+      console.log(this.state.avatar);
+      //reader.readAsDataURL(this.state.avatar); // read the file from the local disk
+    });
+  };
 
   render() {
+    console.log(this.props);
     const { email, password, firstName, lastName } = this.state;
     return (
       <div className="sign-up">
@@ -99,6 +106,17 @@ export default class Signup extends Component {
             name="password"
             defaultValue={password}
           />
+          <label className="label" htmlFor="avatar">
+            avatar
+          </label>
+          <input
+            className="input"
+            id="avatar"
+            type="file"
+            name="avatar"
+            onChange={this.handleImage}
+          />
+
           <button className="submit">ok</button>
         </form>
         <p className="parag">

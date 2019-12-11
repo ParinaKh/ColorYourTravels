@@ -3,6 +3,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-places-autocomplete";
+import Itinerary from "../Components/Itinerary";
 
 export default function GooglePlaces() {
   const [address, setAddress] = React.useState("");
