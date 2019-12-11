@@ -1,30 +1,37 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import "../Styles/ItineraryPlanner.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-// const ItineraryCard = ({ accomodation }) => {
-//   function handleSelect(e, i) {
-//     e.preventDefault();
-//   }
+function ItineraryCard(props) {
+  const [itinerary, setItinerary] = useState([]);
 
-//   return (
-//     <div className="transportation-card">
-//       {/* {Boolean(transportation.length) === false && (
-//         <p>no transportations yet</p>
-//       )} */}
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_BACKEND_URL + "/itinerary")
 
-//       <div
-//         className="transportation"
-//         value={transportation}
-//         onSubmit={handleSelect}
-//       >
-//         {transportation.transport}
-//         {transportation.startPoint}
-//         {transportation.bookingRef}
-//         {transportation.departureDate}
-//       </div>
-//     </div>
-//   );
-// };
+      .then(apiRes => {
+        console.log(apiRes, "Guten tag");
+        setItinerary(apiRes.data);
+        console.log();
+      })
+      .catch(apiErr => console.error(apiErr));
+    return () => {};
+  }, []);
 
-// export default ItineraryCard;
+  return (
+    <div className="all-itineraries">
+      {/* {Boolean(itinerary.length) === false && <p>no steps yet</p>} */}
+      {itinerary.map((itinerary, i) => (
+        <div key={i} value={itinerary}>
+          <p>hello</p>
+          {itinerary.steps}
+        </div>
+      ))}
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+      <p>hello</p>
+    </div>
+  );
+}
+
+export default ItineraryCard;
