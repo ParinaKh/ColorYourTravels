@@ -2,35 +2,25 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../Styles/ItineraryPlanner.css";
 
-const GeoLine = props => {
-  const [steps, setSteps] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.REACT_APP_BACKEND_URL}/itinerary/${props.itineraryID}`
-      )
-      .then(apiRes => {
-        console.log(apiRes);
-        setSteps(apiRes.data.steps);
-      })
-      .catch(apiErr => console.error(apiErr));
-    return () => {};
-  }, []);
-
-  function handleSelect(e, i) {
-    e.preventDefault();
-    console.log("click ok");
-    console.log(props.steps);
+const GeoLine = ({ itinerary, stepCount, setStepCount }) => {
+  function handleSelect(index) {
+    // e.preventDefault();
+    console.log("click ok", index);
+    setStepCount(index);
+    // console.log(props.steps);
   }
-
-  console.log();
 
   return (
     <div className="geoline">
-      {Boolean(steps.length) === false && <p>no steps yet</p>}
-      {steps.map((step, i) => (
-        <div className="steps" key={i} value={step} onClick={handleSelect}>
+      {Boolean(itinerary.steps.length) === false && <p>no steps yet</p>}
+      {itinerary.steps.map((step, i) => (
+        <div
+          // style={{ backgroundColor: stepCount === i ? "green" : "grey" }}
+          className={stepCount === i ? "steps active" : "steps"}
+          key={i}
+          value={step}
+          onClick={evt => handleSelect(i)}
+        >
           {step.city}
         </div>
       ))}

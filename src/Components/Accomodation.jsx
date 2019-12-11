@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { withRouter } from "react-router-dom";
 import "../Styles/ItineraryPlanner.css";
 import axios from "axios";
 
-function Accomodation(props) {
+function Accomodation({ itinerary, stepCount }) {
   const [accomodations, setAccomodations] = useState([]);
   const [accomodation, setAccomodation] = useState({
     name: "",
@@ -14,30 +14,27 @@ function Accomodation(props) {
     // checkOut: ""
   });
 
-  const [steps, setSteps] = useState([]);
-  const [stepCount, setStepCount] = useState(0);
-  console.log(props.steps);
   function handleChange(e, i) {
     setAccomodation({
       ...accomodation,
       [e.target.name]: e.target.value
     });
-    setAccomodations([...accomodations, ([e.target.name]: e.target.value)]);
+    // setAccomodations([...accomodations, ([e.target.name]: e.target.value)]);
   }
 
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.REACT_APP_BACKEND_URL}/itinerary/${props.itineraryID}`
-      )
-      .then(apiRes => {
-        setSteps(apiRes.data.steps);
-        setAccomodations(apiRes.data.steps[stepCount].accomodation);
-      })
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `${process.env.REACT_APP_BACKEND_URL}/itinerary/${props.itineraryID}`
+  //     )
+  //     .then(apiRes => {
+  //       setSteps(apiRes.data.steps);
+  //       setAccomodations(apiRes.data.steps[stepCount].accomodation);
+  //     })
 
-      .catch(apiErr => console.error(apiErr));
-    return () => {};
-  }, []);
+  //     .catch(apiErr => console.error(apiErr));
+  //   return () => {};
+  // }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -49,19 +46,19 @@ function Accomodation(props) {
       // checkIn: "",
       // checkOut: ""
     });
-    console.log(props.itineraryID, "this");
+    // console.log(props.itineraryID, "this");
     axios
       .post(
         process.env.REACT_APP_BACKEND_URL +
           "/accomodation/" +
-          props.itineraryID +
+          itinerary._id +
           "/" +
-          steps[stepCount]._id,
+          itinerary.steps[stepCount]._id,
         accomodation
       )
       .then(res => {
         console.log(res);
-        console.log("accomodation", res.data);
+        // console.log("accomodation", res.data);
         // props.history.push("/accomodation/" + res.data._id); // renvoie vers URL FRONT
       })
       .catch(err => console.log(err));

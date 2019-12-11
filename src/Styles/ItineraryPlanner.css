@@ -30,6 +30,9 @@
     padding: 30px;
 }
 
+
+
+
 label {
     margin: 10px;
     font-size: 20px
@@ -47,6 +50,10 @@ input {
     display: flex;
     align-items: center;
     width: 70%;
+}
+
+.steps.active {
+    background: green;
 }
 
 .add-button {
