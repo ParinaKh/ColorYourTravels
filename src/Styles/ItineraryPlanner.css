@@ -98,6 +98,12 @@ input {
 }
 
 .booking-planner {
+<<<<<<< HEAD
+    display: flex;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+
+=======
   display: flex;
   grid-column: 1 / 4;
   grid-row: 3 / 4;
@@ -113,6 +119,7 @@ input {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.7);
   color: black;
+>>>>>>> ee5d9f4d38471ae6d8b45285dec702903ad08bf0
 }
 
 .geoline {
