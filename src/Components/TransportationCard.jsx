@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import APIHandler from "./../api/ApiHandler";
 import "../Styles/ItineraryPlanner.css";
 
-const TransportationCard = ({ transportation }) => {
+const TransportationCard = ({ resourceId }) => {
+  const [transportation, setTransportation] = useState(null);
+
   function handleSelect(e, i) {
     e.preventDefault();
   }
 
+  useEffect(() => {
+    APIHandler.get(`/transportation/${resourceId}`).then(apiRes => {
+      setTransportation(apiRes.data);
+    });
+  }, []);
+
   // console.log(steps);
+  if (!transportation) return null;
 
   return (
     <div className="transportation-card">

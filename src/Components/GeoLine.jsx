@@ -10,15 +10,16 @@ const GeoLine = ({ itinerary, stepCount, setStepCount }) => {
     // console.log(props.steps);
   }
 
+  if (!itinerary.steps) return null;
+
   return (
     <div className="geoline">
       {Boolean(itinerary.steps.length) === false && <p>no steps yet</p>}
       {itinerary.steps.map((step, i) => (
         <div
-          // style={{ backgroundColor: stepCount === i ? "green" : "grey" }}
+          style={{ backgroundColor: stepCount === i ? "green" : "grey" }}
           className={stepCount === i ? "steps active" : "steps"}
           key={i}
-          value={step}
           onClick={evt => handleSelect(i)}
         >
           {step.city}
