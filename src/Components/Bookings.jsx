@@ -55,26 +55,30 @@ export default function Bookings(props) {
           setItinerary={setItinerary}
         />
       </div>
-      <div className="transportation-cards">
-        {" "}
-        <p>Transportations</p>
-        {itinerary.steps[stepCount].transportation.map((transportation, i) => (
-          <TransportationCard key={i} transportation={transportation} />
-        ))}
-      </div>
-      <div className="accomodation-cards">
-        {" "}
-        <p>Accomodations</p>
-        {itinerary.steps[stepCount].accomodation.map((accomodation, i) => (
-          <AccomodationCard key={i} accomodation={accomodation} />
-        ))}
-      </div>
-      <div className="activity-cards">
-        {" "}
-        <p>Activities</p>
-        {itinerary.steps[stepCount].activity.map((activity, i) => (
-          <ActivityCard key={i} activity={activity} />
-        ))}
+      <div className="cards-container">
+        <div className="transportation-cards">
+          {" "}
+          <p>Transportations</p>
+          {itinerary.steps[stepCount].transportation.map(
+            (transportation, i) => (
+              <TransportationCard key={i} transportation={transportation} />
+            )
+          )}
+        </div>
+        <div className="accomodation-cards">
+          {" "}
+          <p>Accomodations</p>
+          {itinerary.steps[stepCount].accomodation.map((accomodation, i) => (
+            <AccomodationCard key={i} accomodation={accomodation} />
+          ))}
+        </div>
+        <div className="activity-cards">
+          {" "}
+          <p>Activities</p>
+          {itinerary.steps[stepCount].activity.map((activity, i) => (
+            <ActivityCard key={i} activity={activity} />
+          ))}
+        </div>
       </div>
     </div>
   );

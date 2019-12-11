@@ -139,3 +139,7 @@ input {
     background: white;
     margin: 10px
 }
+
+.cards-container {
+    display: flex
+}
