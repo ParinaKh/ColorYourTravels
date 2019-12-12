@@ -54,6 +54,22 @@ function CreateItinerary(props) {
     setSteps(stepsValues);
   }
 
+  const handleImage = e => {
+    // return;
+    console.log(e.target.files[0]);
+
+    this.setState({ itineraryImage: e.target.files[0] }, () => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        // when the fileREader ends  ...
+        const baseString = reader.result; // get the image as a base64 encoded string
+        this.setState({ tmpItineraryImage: baseString }); // set the tmp avatar as an image source before upload
+      };
+      console.log(this.state.itineraryImage);
+      //reader.readAsDataURL(this.state.avatar); // read the file from the local disk
+    });
+  };
+
   return (
     <div className="itinerary-planner">
       <h1>Create new Itinerary</h1>
@@ -99,6 +115,16 @@ function CreateItinerary(props) {
             </div>
           );
         })}
+        <label className="label" htmlFor="itinerary-image">
+          Itinerary Image
+        </label>
+        <input
+          className="input"
+          id="itinerary-image"
+          type="file"
+          name="itinerary-image"
+          onChange={handleImage}
+        />
         <button className="create-button">Create my itinerary</button>
       </form>
     </div>
