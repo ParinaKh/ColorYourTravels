@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../Styles/ItineraryPlanner.css";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const GeoLine = ({ itinerary, stepCount, setStepCount }) => {
   function handleSelect(index) {
@@ -13,19 +15,26 @@ const GeoLine = ({ itinerary, stepCount, setStepCount }) => {
   if (!itinerary.steps) return null;
 
   return (
-    <div className="geoline">
-      {Boolean(itinerary.steps.length) === false && <p>no steps yet</p>}
-      {itinerary.steps.map((step, i) => (
-        <div
-          style={{ backgroundColor: stepCount === i ? "green" : "grey" }}
-          className={stepCount === i ? "steps active" : "steps"}
-          key={i}
-          onClick={evt => handleSelect(i)}
-        >
-          {step.city}
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="itinerary-description">
+        <h1>{itinerary.title}</h1>
+        <h3 className="description-geo">{itinerary.description}</h3>
+      </div>
+      <div className="geoline">
+        {Boolean(itinerary.steps.length) === false && <p>no steps yet</p>}
+        {itinerary.steps.map((step, i) => (
+          <div
+            style={{ backgroundColor: stepCount === i ? "#B8FFE9" : "#FFCEB8" }}
+            className={stepCount === i ? "steps active" : "steps"}
+            key={i}
+            onClick={evt => handleSelect(i)}
+          >
+            {step.city}
+            {/* <FontAwesomeIcon icon={faTimes} /> */}
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

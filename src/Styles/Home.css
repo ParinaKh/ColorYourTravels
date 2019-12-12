@@ -22,7 +22,7 @@
   color: white;
   font-family: "Abel", sans-serif;
   text-decoration: none;
-  font-size: 23px;
+  font-size: 18px;
 }
 
 .nav-section {
@@ -39,18 +39,19 @@
 }
 
 .title {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.397);
   left: 50%;
-  border: solid 6px white;
+  border: solid 4px white;
   color: white;
-  padding: 30px;
+  padding: 20px;
   position: absolute;
   text-align: center;
   transform: translate(-50%, -50%);
-  top: 40%;
+  top: 50%;
   text-shadow: black 0.2em 0.1em 0.2em;
-  font-size: 3em;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.397);
+  font-size: 2em;
+  box-shadow: black 0.2em 0.1em 0.2em;
 }
 
 .section1 {
@@ -74,7 +75,6 @@
   width: 67.5%;
   margin: auto;
 }
-
 
 .each-slide > div {
   display: flex;
@@ -103,4 +103,3 @@
 .each-fade .image-container img {
   width: 100%;
 }
-

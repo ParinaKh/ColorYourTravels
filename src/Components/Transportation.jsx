@@ -52,8 +52,12 @@ function Transportation({ itinerary, stepCount, setItinerary, creationClbk }) {
   return (
     <div>
       <h2>Transportation</h2>
-      <form onSubmit={handleSubmit} onChange={handleChange}>
-        <label htmlFor="transportation" className="transport-type">
+      <form
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        className="booking-form"
+      >
+        <label htmlFor="transportation" className="booking-label">
           Transportation type
         </label>
         <select
@@ -72,26 +76,47 @@ function Transportation({ itinerary, stepCount, setItinerary, creationClbk }) {
           <option value="car">Car</option>
           <option value="walking">Walking</option>
         </select>
-        <label htmlFor="startPoint">City of departure</label>
+        <label htmlFor="startPoint" className="booking-label">
+          City of departure
+        </label>
         <input
           value={transport.startpoint}
           id="startPoint"
+          className="booking-input"
           type="text"
           name="startPoint"
           placeholder="City of departure"
+          required
         />
-        <label htmlFor="endPoint">City of arrival</label>
+        <label htmlFor="endPoint" className="booking-label">
+          City of arrival
+        </label>
         <input
           id="endPoint"
+          className="booking-input"
           type="text"
           name="endPoint"
           placeholder="City of arrival"
+          required
         />
-        <label htmlFor="bookingRef">Booking Reference (optional)</label>
-        <input type="text" name="bookingRef" placeholder="bookingRef" />
+        <label htmlFor="bookingRef" className="booking-label">
+          Booking Reference (optional)
+        </label>
+        <input
+          className="booking-input"
+          type="text"
+          name="bookingRef"
+          placeholder="bookingRef"
+        />
         <label htmlFor="departure">Departure Date</label>
-        <input type="date" name="departureDate" placeholder="Departure date" />
-        <button>Add</button>
+        <input
+          className="booking-input"
+          type="date"
+          name="departureDate"
+          placeholder="Departure date"
+          required
+        />
+        <button className="add-button ">Add</button>
       </form>
     </div>
   );

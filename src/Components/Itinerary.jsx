@@ -4,6 +4,10 @@ import { withRouter } from "react-router-dom";
 import "../Styles/ItineraryPlanner.css";
 import axios from "axios";
 
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng
+} from "react-places-autocomplete";
 
 function CreateItinerary(props) {
   const [fields, setFields] = useState({

@@ -37,47 +37,64 @@ function Accomodation({ itinerary, stepCount, setItinerary, creationClbk }) {
   return (
     <div>
       <h2>Accomodation</h2>
-      <form onSubmit={handleSubmit} onChange={handleChange}>
-        <label htmlFor="name" className="accomodation-name">
+      <form
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        className="booking-form"
+      >
+        <label htmlFor="name" className="booking-label">
           Name
         </label>
         <input
           id="name"
+          className="booking-input"
           type="text"
           name="name"
           placeholder="Name"
           defaultValue={accomodation.name}
         />
-        <label htmlFor="address">Address</label>
+        <label htmlFor="address" className="booking-label">
+          Address
+        </label>
         <input
           id="address"
+          className="booking-input"
           type="text"
           name="address"
           placeholder="Address"
           defaultValue={accomodation.address}
         />
-        <label htmlFor="BookingRef">Booking Reference</label>
+        <label htmlFor="BookingRef" className="booking-label">
+          Booking Reference (optional)
+        </label>
         <input
           type="text"
+          className="booking-input"
           name="bookingRef"
           placeholder="BookingRef"
           defaultValue={accomodation.bookingRef}
         />
-        <label htmlFor="checkIn">Check-in</label>
+        <label htmlFor="checkIn" className="booking-label">
+          Check-in
+        </label>
         <input
           type="date"
+          className="booking-input"
           name="checkIn"
           placeholder="date"
           defaultValue={accomodation.checkIn}
         />
-        <label htmlFor="checkOut">Check-out</label>
+        <label htmlFor="checkOut" className="booking-label">
+          Check-out
+        </label>
         <input
           type="date"
+          className="booking-input"
           name="checkOut"
           placeholder="date"
           defaultValue={accomodation.checkOut}
         />
-        <button>Add</button>
+        <button className="add-button">Add</button>
       </form>
     </div>
   );
