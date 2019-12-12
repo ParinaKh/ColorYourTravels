@@ -144,7 +144,7 @@ function CreateItinerary(props) {
           className="input"
           id="itinerary-image"
           type="file"
-          name="itinerary-image"
+          name="itineraryImage"
           onChange={handleImage}
         />
         <button className="create-button">Create my itinerary</button>
