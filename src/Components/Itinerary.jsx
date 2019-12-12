@@ -58,84 +58,86 @@ function CreateItinerary(props) {
   };
 
   return (
-    <div className="itinerary-planner">
-      <h1>Create new Itinerary</h1>
-      <form className="itinerary-form" onSubmit={handleSubmit}>
-        <label htmlFor="title">Title</label>
-        <input
-          type="text"
-          name="title"
-          placeholder="Itinerary name"
-          onChange={handleChange}
-        />
-        <label htmlFor="description">Description</label>
-        <input
-          type="text"
-          name="description"
-          placeholder="Description"
-          onChange={handleChange}
-        />
-        <label htmlFor="startDate" className="startDate">
-          Start Date
-        </label>
-        <input
-          type="date"
-          className="startDate"
-          name="startDate"
-          placeholder="Start date"
-          // defaultValue={i.checkIn}
-        />
+    <div className="itinerary-container">
+      <div className="itinerary-planner">
+        <h1>Create new Itinerary</h1>
+        <form className="itinerary-form" onSubmit={handleSubmit}>
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            placeholder="Itinerary name"
+            onChange={handleChange}
+          />
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            name="description"
+            placeholder="Description"
+            onChange={handleChange}
+          />
+          <label htmlFor="startDate" className="startDate">
+            Start Date
+          </label>
+          <input
+            type="date"
+            className="startDate"
+            name="startDate"
+            placeholder="Start date"
+            // defaultValue={i.checkIn}
+          />
 
-        <label htmlFor="endDate" className="endDate">
-          End Date
-        </label>
-        <input
-          type="date"
-          className="endDate"
-          name="endDate"
-          placeholder="End date"
-          // defaultValue={accomodation.checkOut}
-        />
+          <label htmlFor="endDate" className="endDate">
+            End Date
+          </label>
+          <input
+            type="date"
+            className="endDate"
+            name="endDate"
+            placeholder="End date"
+            // defaultValue={accomodation.checkOut}
+          />
 
-        <label htmlFor="description">Steps</label>
-        <div>
-          <button className="add-button" type="button" onClick={handleAdd}>
-            +
-          </button>
-        </div>
+          <label htmlFor="description">Steps</label>
+          <div>
+            <button className="add-button" type="button" onClick={handleAdd}>
+              +
+            </button>
+          </div>
 
-        {steps.map((step, i) => {
-          return (
-            <div className="steps" key={i}>
-              <input
-                type="text"
-                placeholder="Step"
-                name="steps"
-                // value={field.value || ""}
-                onChange={e => handleChange(e, i)}
-              />
-              <button
-                className="remove-button"
-                type="button"
-                onClick={() => handleRemove(i)}
-              >
-                X
-              </button>
-            </div>
-          );
-        })}
-        <label className="label" htmlFor="itinerary-image">
-          Itinerary Image
-        </label>
-        <input
-          className="input"
-          id="itinerary-image"
-          type="file"
-          name="itinerary-image"
-          onChange={handleImage}
-        />
-        <button className="create-button">Create my itinerary</button>
-      </form>
+          {steps.map((step, i) => {
+            return (
+              <div className="steps" key={i}>
+                <input
+                  type="text"
+                  placeholder="Step"
+                  name="steps"
+                  // value={field.value || ""}
+                  onChange={e => handleChange(e, i)}
+                />
+                <button
+                  className="remove-button"
+                  type="button"
+                  onClick={() => handleRemove(i)}
+                >
+                  X
+                </button>
+              </div>
+            );
+          })}
+          <label className="label" htmlFor="itinerary-image">
+            Itinerary Image
+          </label>
+          <input
+            className="input"
+            id="itinerary-image"
+            type="file"
+            name="itinerary-image"
+            onChange={handleImage}
+          />
+          <button className="create-button">Create my itinerary</button>
+        </form>
+      </div>
     </div>
   );
 }
