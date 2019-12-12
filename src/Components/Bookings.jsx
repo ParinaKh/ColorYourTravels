@@ -8,6 +8,7 @@ import AccomodationCard from "./AccomodationCard";
 import ActivityCard from "./ActivityCard";
 import axios from "axios";
 
+
 const availableCards = {
   accomodation: AccomodationCard,
   transportation: TransportationCard,
