@@ -24,11 +24,7 @@ const AccomodationCard = ({ resourceId }) => {
         <p>no accomodations yet</p>
       )} */}
 
-      <div
-        className="accomodation"
-        value={accomodation}
-        onSubmit={handleSelect}
-      >
+      <div className="accomodation" onSubmit={handleSelect}>
         {accomodation.name}
         {accomodation.address}
         {accomodation.bookingRef}

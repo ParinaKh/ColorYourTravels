@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import APIHandler from "./../api/ApiHandler";
+import APIHandler from "../api/ApiHandler";
 import "../Styles/ItineraryPlanner.css";
 
 const ActivityCard = ({ resourceId }) => {
@@ -22,7 +22,7 @@ const ActivityCard = ({ resourceId }) => {
         <p>no activities yet</p>
       )} */}
 
-      <div className="activity" value={activity} onSubmit={handleSelect}>
+      <div className="activity" onSubmit={handleSelect}>
         {activity.date}
         {activity.description}
         {activity.address}

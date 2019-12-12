@@ -34,7 +34,7 @@ const TransportationCard = ({ resourceId }) => {
         <div>From {transportation.startPoint}</div>
         <div>to {transportation.endPoint}</div>
         <div>
-          Departure on <FormatDate date={transportation.departureDate} />
+          Departure on <FormatDate date={transportation.startDate} />
         </div>
         <div>Booking Ref : {transportation.bookingRef}</div>
       </div>
