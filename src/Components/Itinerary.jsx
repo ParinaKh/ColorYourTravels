@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import { withRouter } from "react-router-dom";
 import "../Styles/ItineraryPlanner.css";
-import axios from "axios";
+import APIHandler from "./../api/ApiHandler";
 
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -15,6 +14,7 @@ function CreateItinerary(props) {
   });
 
   const [steps, setSteps] = useState([]);
+  const [itineraryImage, setItineraryImage] = useState(null);
 
   function handleChange(e, i) {
     console.log(fields);
@@ -27,19 +27,17 @@ function CreateItinerary(props) {
     }
   }
 
-  console.log(props);
-
   function handleSubmit(e) {
-    console.log("here");
     e.preventDefault();
+    const fd = new FormData();
+    fd.append("fields", JSON.stringify(fields));
+    fd.append("itineraryImage", itineraryImage);
 
-    axios
-      .post(process.env.REACT_APP_BACKEND_URL + "/itinerary", fields)
+    APIHandler.post("/itinerary", fd)
       .then(res => {
-        console.log("here3", res.data);
         props.history.push("/itinerary/" + res.data._id); // renvoie vers URL FRONT
       })
-      .catch(err => console.log("err", err));
+      .catch(err => console.error(err));
   }
 
   function handleAdd() {
@@ -55,19 +53,8 @@ function CreateItinerary(props) {
   }
 
   const handleImage = e => {
-    // return;
     console.log(e.target.files[0]);
-
-    this.setState({ itineraryImage: e.target.files[0] }, () => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        // when the fileREader ends  ...
-        const baseString = reader.result; // get the image as a base64 encoded string
-        this.setState({ tmpItineraryImage: baseString }); // set the tmp avatar as an image source before upload
-      };
-      console.log(this.state.itineraryImage);
-      //reader.readAsDataURL(this.state.avatar); // read the file from the local disk
-    });
+    setItineraryImage(e.target.files[0]);
   };
 
   return (
