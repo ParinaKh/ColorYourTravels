@@ -5,47 +5,45 @@ import AppMap from "./AppMap";
 
 const NavMain = () => {
   return (
-    <div>
-      <nav className="nav-main">
-        <div className="nav-section">
-          <div className="nav-link">
-            <NavLink exact className="link" activeClassName="is-active" to="/">
-              Home
-            </NavLink>
-          </div>
-          <div className="nav-link">
-            <NavLink
-              className="link"
-              activeClassName="is-active"
-              to="/itineraryplanner"
-            >
-              Itinerary Planner
-            </NavLink>
-          </div>
-          <div className="nav-link">
-            <NavLink
-              className="link"
-              activeClassName="is-active"
-              to="/allmyitineraries"
-            >
-              All my Itineraries
-            </NavLink>
-          </div>
+    <nav className="nav-main">
+      <div className="nav-section">
+        <div className="nav-link">
+          <NavLink exact className="link" activeClassName="is-active" to="/">
+            Home
+          </NavLink>
         </div>
-        <div className="nav-section">
-          <div className="nav-link">
-            <NavLink className="link" activeClassName="is-active" to="/signin">
-              SignIn
-            </NavLink>
-          </div>
-          <div className="nav-link">
-            <NavLink className="link" activeClassName="is-active" to="/signup">
-              SignUp
-            </NavLink>
-          </div>
+        <div className="nav-link">
+          <NavLink
+            className="link"
+            activeClassName="is-active"
+            to="/itineraryplanner"
+          >
+            Itinerary Planner
+          </NavLink>
         </div>
-      </nav>
-    </div>
+        <div className="nav-link">
+          <NavLink
+            className="link"
+            activeClassName="is-active"
+            to="/allmyitineraries"
+          >
+            All my Itineraries
+          </NavLink>
+        </div>
+      </div>
+      <div className="nav-section">
+        <div className="nav-link">
+          <NavLink className="link" activeClassName="is-active" to="/signin">
+            SignIn
+          </NavLink>
+        </div>
+        <div className="nav-link">
+          <NavLink className="link" activeClassName="is-active" to="/signup">
+            SignUp
+          </NavLink>
+        </div>
+      </div>
+    </nav>
   );
 };
 

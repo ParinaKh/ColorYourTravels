@@ -4,8 +4,8 @@ import Transportation from "./Transportation";
 import Accomodation from "./Accomodation";
 import Activity from "./Activity";
 
-import AppMap from "../Components/AppMap";
-import GooglePlaces from "../Components/GooglePlaces";
+import AppMap from "./AppMap";
+import GooglePlaces from "./GooglePlaces";
 
 export default function CreateItinerary(props) {
   const [itineraries, setItineraries] = useState([]);

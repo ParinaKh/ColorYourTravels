@@ -112,7 +112,7 @@ function Transportation({ itinerary, stepCount, setItinerary, creationClbk }) {
         <input
           className="booking-input"
           type="date"
-          name="departureDate"
+          name="startDate"
           placeholder="Departure date"
           required
         />

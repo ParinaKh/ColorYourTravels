@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import APIHandler from "./../api/ApiHandler";
+import APIHandler from "../api/ApiHandler";
 import "../Styles/ItineraryPlanner.css";
 
 const ActivityCard = ({ resourceId }) => {

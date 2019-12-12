@@ -48,14 +48,13 @@
   position: absolute;
   text-align: center;
   transform: translate(-50%, -50%);
-  top: 50%;
+  top: 30%;
   text-shadow: black 0.2em 0.1em 0.2em;
   font-size: 2em;
   box-shadow: black 0.2em 0.1em 0.2em;
 }
 
-.section1 {
-}
+.section1 {}
 
 .all-containers {
   display: flex;
@@ -76,7 +75,7 @@
   margin: auto;
 }
 
-.each-slide > div {
+.each-slide>div {
   display: flex;
   align-items: center;
   justify-content: center;

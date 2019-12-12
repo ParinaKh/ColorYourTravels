@@ -8,7 +8,6 @@ import AccomodationCard from "./AccomodationCard";
 import ActivityCard from "./ActivityCard";
 import axios from "axios";
 
-
 const availableCards = {
   accomodation: AccomodationCard,
   transportation: TransportationCard,
@@ -18,7 +17,7 @@ const availableCards = {
 // cards["transportation"];
 
 export default function Bookings(props) {
-  const [itinerary, setItinerary] = useState(null);
+  const [itinerary, setItinerary] = useState({});
   const [stepCount, setStepCount] = useState(0);
   const [activeForm, setActiveForm] = useState(null);
   const [cards, setCards] = useState([]);
@@ -29,11 +28,21 @@ export default function Bookings(props) {
         `${process.env.REACT_APP_BACKEND_URL}/itinerary/${props.match.params.id}`
       )
       .then(apiRes => {
+        console.log(apiRes);
+
         setItinerary(apiRes.data);
       })
       .catch(apiErr => console.error(apiErr));
     return () => {};
   }, []);
+
+  useEffect(() => {
+    if (!cards.length && Object.keys(itinerary).length) addCards();
+  }, [itinerary, cards]);
+
+  const addCards = () => {
+    console.log("todo add cards", itinerary.steps[stepCount]);
+  };
 
   const addCard = infos => {
     setItinerary(infos);
