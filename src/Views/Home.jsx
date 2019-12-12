@@ -2,12 +2,15 @@ import React from "react";
 import homeImage from "../images/travel-plan.jpg";
 import "../Styles/Home.css";
 import GooglePlaces from "../Components/GooglePlaces";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
     <div>
       <section className="section1">
-        <h1 className="title">SIGN UP TO START THE JOURNEY</h1>
+        <Link to="/signup" className="link">
+          <h1 className="title">SIGN UP TO START THE JOURNEY</h1>
+        </Link>
         <img className="homepage-image" src={homeImage} alt={"homeImage"} />
         <div className="all-containers">
           <div className="text-container">

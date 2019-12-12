@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import APIHandler from "./../api/ApiHandler";
+import FormatDate from "./FormatDate";
 import "../Styles/ItineraryPlanner.css";
 
 const TransportationCard = ({ resourceId }) => {
@@ -19,20 +20,23 @@ const TransportationCard = ({ resourceId }) => {
   if (!transportation) return null;
 
   return (
-    <div className="transportation-card">
+    <div className="booking-card">
       {/* {Boolean(transportation.length) === false && (
         <p>no transportations yet</p>
       )} */}
 
       <div
-        className="transportation"
+        className="transportation-cards"
         value={transportation}
         onSubmit={handleSelect}
       >
-        {transportation.departureDate}
-        {transportation.transport}
-        {transportation.startPoint}
-        {transportation.bookingRef}
+        <div>{transportation.transport} </div>
+        <div>From {transportation.startPoint}</div>
+        <div>to {transportation.endPoint}</div>
+        <div>
+          Departure on <FormatDate date={transportation.departureDate} />
+        </div>
+        <div>Booking Ref : {transportation.bookingRef}</div>
       </div>
     </div>
   );

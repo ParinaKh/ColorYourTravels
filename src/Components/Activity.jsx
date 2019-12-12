@@ -34,21 +34,49 @@ function Activity({ itinerary, stepCount, setItinerary, creationClbk }) {
   return (
     <div>
       <h2>Activities</h2>
-      <form onSubmit={handleSubmit} onChange={handleChange}>
-        <label htmlFor="description">Description</label>
+      <form
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        className="booking-form"
+      >
+        <label htmlFor="description" className="booking-label">
+          Description
+        </label>
         <input
           id="description"
+          className="booking-input"
           type="text"
           name="description"
           placeholder="Name"
         />
-        <label htmlFor="address">Address</label>
-        <input type="text" name="address" placeholder="Address" />
-        <label htmlFor="bookingRef">Booking Reference</label>
-        <input type="text" name="bookingRef" placeholder="BookingRef" />
-        <label htmlFor="date">Date</label>
-        <input type="date" name="date" placeholder="date" />
-        <button>Add</button>
+        <label htmlFor="address" className="booking-label">
+          Address
+        </label>
+        <input
+          className="booking-input"
+          type="text"
+          name="address"
+          placeholder="Address"
+        />
+        <label htmlFor="bookingRef" className="booking-label">
+          Booking Reference (optional)
+        </label>
+        <input
+          className="booking-input"
+          type="text"
+          name="bookingRef"
+          placeholder="BookingRef"
+        />
+        <label htmlFor="date" className="booking-label">
+          Date
+        </label>
+        <input
+          className="booking-input"
+          type="date"
+          name="date"
+          placeholder="date"
+        />
+        <button className="add-button">Add</button>
       </form>
     </div>
   );

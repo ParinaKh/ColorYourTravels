@@ -48,68 +48,72 @@ export default function Bookings(props) {
   if (itinerary === null) return <div>No itinerary</div>;
 
   return (
-    <div className="booking-container">
-      <GeoLine
-        itinerary={itinerary}
-        setStepCount={setStepCount}
-        stepCount={stepCount}
-      />
-      <div className="booking-buttons">
-        <button
-          onClick={() =>
-            setActiveForm(
-              activeForm === "transportation" ? null : "transportation"
-            )
-          }
-        >
-          +transportation
-        </button>
-        <button
-          onClick={() =>
-            setActiveForm(activeForm === "accomodation" ? null : "accomodation")
-          }
-        >
-          +accomodation
-        </button>
-        <button
-          onClick={() =>
-            setActiveForm(activeForm === "activity" ? null : "activity")
-          }
-        >
-          +activity
-        </button>
-      </div>
+    <div className="booking-page">
+      <div className="booking-container">
+        <GeoLine
+          itinerary={itinerary}
+          setStepCount={setStepCount}
+          stepCount={stepCount}
+        />
+        <div className="booking-buttons">
+          <button
+            onClick={() =>
+              setActiveForm(
+                activeForm === "transportation" ? null : "transportation"
+              )
+            }
+          >
+            +transportation
+          </button>
+          <button
+            onClick={() =>
+              setActiveForm(
+                activeForm === "accomodation" ? null : "accomodation"
+              )
+            }
+          >
+            +accomodation
+          </button>
+          <button
+            onClick={() =>
+              setActiveForm(activeForm === "activity" ? null : "activity")
+            }
+          >
+            +activity
+          </button>
+        </div>
 
-      <div className="booking-planner">
-        {activeForm === "transportation" && (
-          <TransportationForm
-            creationClbk={addCard}
-            itinerary={itinerary}
-            stepCount={stepCount}
-          />
-        )}
-        {activeForm === "accomodation" && (
-          <AccomodationForm
-            itinerary={itinerary}
-            stepCount={stepCount}
-            creationClbk={addCard}
-          />
-        )}
-        {activeForm === "activity" && (
-          <ActivityForm
-            creationClbk={addCard}
-            itinerary={itinerary}
-            stepCount={stepCount}
-          />
-        )}
-      </div>
-      <div className="cards-container">
-        {cards.map((c, i) => {
-          const oneStepValues = itinerary.steps[stepCount][c.type];
-          const currentValue = oneStepValues[oneStepValues.length - 1];
-          const CurrentCard = availableCards[c.type];
-          return <CurrentCard key={i} resourceId={currentValue} />;
-        })}
+        <div className="booking-planner">
+          {activeForm === "transportation" && (
+            <TransportationForm
+              creationClbk={addCard}
+              itinerary={itinerary}
+              stepCount={stepCount}
+            />
+          )}
+          {activeForm === "accomodation" && (
+            <AccomodationForm
+              itinerary={itinerary}
+              stepCount={stepCount}
+              creationClbk={addCard}
+            />
+          )}
+          {activeForm === "activity" && (
+            <ActivityForm
+              creationClbk={addCard}
+              itinerary={itinerary}
+              stepCount={stepCount}
+            />
+          )}
+        </div>
+        <div className="cards-container">
+          {cards.map((c, i) => {
+            const oneStepValues = itinerary.steps[stepCount][c.type];
+            const currentValue = oneStepValues[oneStepValues.length - 1];
+            const CurrentCard = availableCards[c.type];
+            return <CurrentCard key={i} resourceId={currentValue} />;
+          })}
+        </div>
       </div>
     </div>
   );
