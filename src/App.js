@@ -23,7 +23,7 @@ function App() {
         <main id="main-content">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/itineraryplanner" component={ItineraryPlanner} />
+            {/* <Route path="/itineraryplanner" component={ItineraryPlanner} /> */}
             <Route
               exact
               path="/allmyitineraries"

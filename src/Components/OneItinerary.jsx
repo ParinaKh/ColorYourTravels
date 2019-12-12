@@ -30,7 +30,9 @@ export default function OneItinerary(props) {
         {oneItinerary.steps.map((oneStep, i) => (
           <div key={i}>{oneStep.city}</div>
         ))}
-        <button>Update itinerary</button>
+        <Link to="/itinerary/{props.match.params.id}" className="link">
+          <p>Update Itinerary</p>
+        </Link>
       </div>
     </>
   );
