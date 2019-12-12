@@ -23,7 +23,7 @@ const ActivityCard = ({ resourceId }) => {
       )} */}
 
       <div className="activity" value={activity} onSubmit={handleSelect}>
-        {activity.date}
+        {activity.startDate}
         {activity.description}
         {activity.address}
         {activity.bookingRef}

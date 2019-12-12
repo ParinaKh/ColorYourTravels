@@ -52,9 +52,9 @@ export default function CreateItinerary(props) {
         <label htmlFor="steps">Add a step</label>
         <input id="steps" type="text" name="steps" placeholder="Step" />
         <label htmlFor="checkIn">Check-in</label>
-        <input type="date" name="checkIn" placeholder="date" />
+        <input type="date" name="startDate" placeholder="date" />
         <label htmlFor="checkOut">Check-out</label>
-        <input type="date" name="checkOut" placeholder="date" />
+        <input type="date" name="endDate" placeholder="date" />
         <button>Add</button>
       </form>
       {/* <div className="transportation">

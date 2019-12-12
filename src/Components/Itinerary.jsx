@@ -88,6 +88,28 @@ function CreateItinerary(props) {
           placeholder="Description"
           onChange={handleChange}
         />
+        <label htmlFor="startDate" className="startDate">
+          Start Date
+        </label>
+        <input
+          type="date"
+          className="startDate"
+          name="startDate"
+          placeholder="Start date"
+          // defaultValue={i.checkIn}
+        />
+
+        <label htmlFor="endDate" className="endDate">
+          End Date
+        </label>
+        <input
+          type="date"
+          className="endDate"
+          name="endDate"
+          placeholder="End date"
+          // defaultValue={accomodation.checkOut}
+        />
+
         <label htmlFor="description">Steps</label>
         <div>
           <button className="add-button" type="button" onClick={handleAdd}>

@@ -80,9 +80,9 @@ function Accomodation({ itinerary, stepCount, setItinerary, creationClbk }) {
         <input
           type="date"
           className="booking-input"
-          name="checkIn"
+          name="startDate"
           placeholder="date"
-          defaultValue={accomodation.checkIn}
+          defaultValue={accomodation.startDate}
         />
         <label htmlFor="checkOut" className="booking-label">
           Check-out
@@ -90,9 +90,9 @@ function Accomodation({ itinerary, stepCount, setItinerary, creationClbk }) {
         <input
           type="date"
           className="booking-input"
-          name="checkOut"
+          name="endDate"
           placeholder="date"
-          defaultValue={accomodation.checkOut}
+          defaultValue={accomodation.endDate}
         />
         <button className="add-button">Add</button>
       </form>

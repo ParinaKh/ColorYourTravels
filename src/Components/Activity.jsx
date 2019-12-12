@@ -73,7 +73,7 @@ function Activity({ itinerary, stepCount, setItinerary, creationClbk }) {
         <input
           className="booking-input"
           type="date"
-          name="date"
+          name="startDate"
           placeholder="date"
         />
         <button className="add-button">Add</button>
