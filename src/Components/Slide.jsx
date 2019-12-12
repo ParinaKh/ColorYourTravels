@@ -3,6 +3,7 @@ import { Slide } from "react-slideshow-image";
 import { withRouter } from "react-router-dom";
 
 const slideImages = [
+  "./slider/01.png",
   "./slider/1.jpg",
   "./slider/2.jpg",
   "./slider/3.jpg",

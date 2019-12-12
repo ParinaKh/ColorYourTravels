@@ -54,7 +54,7 @@
   box-shadow: black 0.2em 0.1em 0.2em;
 }
 
-.section1 {}
+/* .section1 {} */
 
 .all-containers {
   display: flex;
@@ -68,6 +68,16 @@
   font-size: 23px;
 }
 
+.icon-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: -65px;
+}
+
+.icon {
+  width: 50px;
+  height:50px;
+}
 /* Début de css du slider : */
 
 .slide-container {
