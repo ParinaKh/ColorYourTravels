@@ -1,0 +1,20 @@
+.all-itineraries {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-decoration: none;
+}
+
+.itinerary-card {
+    width: 250px;
+    height: 300px;
+    margin: 50px;
+    background: white;
+    padding: 20px;
+    font-size: 18px;
+    box-shadow: grey 0.2em 0.1em 0.2em;
+}
+
+.description-card {
+    text-decoration: none;
+}

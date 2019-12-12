@@ -30,6 +30,7 @@ export default function OneItinerary(props) {
         {oneItinerary.steps.map((oneStep, i) => (
           <div key={i}>{oneStep.city}</div>
         ))}
+        <button>Update itinerary</button>
       </div>
     </>
   );

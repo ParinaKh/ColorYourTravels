@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../Styles/AllmyItineraries.css";
 import axios from "axios";
 
 function ItineraryCards(props) {
@@ -23,13 +24,15 @@ function ItineraryCards(props) {
       {/* {Boolean(itinerary.length) === false && <p>no steps yet</p>} */}
       {itineraries.map((itinerary, i) => (
         <Link to={`/allmyitineraries/${itinerary._id}`} key={i}>
-          <p>{itinerary.title}</p>
-          <p>{itinerary.description}</p>
-          <p>{itinerary.startDate}</p>
-          <p>{itinerary.endDate}</p>
-          {/* {itinerary.steps.map((step, i)=>(
+          <div className="itinerary-card">
+            <p className="title-card">{itinerary.title}</p>
+            <p className="description-card">{itinerary.description}</p>
+            <p className="title-card">{itinerary.startDate}</p>
+            <p className="title-card">{itinerary.endDate}</p>
+            {/* {itinerary.steps.map((step, i)=>(
 
           ))} */}
+          </div>
         </Link>
       ))}
     </div>
