@@ -54,8 +54,6 @@
   box-shadow: black 0.2em 0.1em 0.2em;
 }
 
-.section1 {}
-
 .all-containers {
   display: flex;
   flex-direction: row;
@@ -75,7 +73,7 @@
   margin: auto;
 }
 
-.each-slide>div {
+.each-slide > div {
   display: flex;
   align-items: center;
   justify-content: center;

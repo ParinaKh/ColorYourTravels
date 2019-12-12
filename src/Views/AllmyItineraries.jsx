@@ -5,7 +5,7 @@ import ItineraryCards from "../Components/ItineraryCards";
 export default class AllmyItineraries extends Component {
   render() {
     return (
-      <div>
+      <div className="itineraries-container">
         <ItineraryCards />
       </div>
     );

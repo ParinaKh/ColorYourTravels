@@ -1,20 +1,75 @@
+.itineraries-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/annie-spratt-qyAka7W5uMY-unsplash.jpg);
+    background-size: cover;
+}
+
 .all-itineraries {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     text-decoration: none;
+    width: 90vw;
+    justify-content: center;
 }
 
 .itinerary-card {
-    width: 250px;
-    height: 300px;
+    width: 270px;
+    height: 350px;
     margin: 50px;
-    background: white;
-    padding: 20px;
-    font-size: 18px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 18px;
+    font-size: 16px;
     box-shadow: grey 0.2em 0.1em 0.2em;
+    border-radius: 5px;
+
+}
+
+.title-card {
+    text-decoration: none;
+    color: black;
+
+}
+
+.itinerary-card img {
+    width: 260px;
+    height: 220px;
 }
 
 .description-card {
     text-decoration: none;
+}
+
+.one-itinerary img {
+    height: 350px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-itinerary {
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    display: flex;
+    height: 55vh;
+    justify-content: space-around;
+    width: 75vw;
+}
+
+.one-itinerary-container {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/annie-spratt-qyAka7W5uMY-unsplash.jpg);
+    height: 100vh;
+}
+
+.link-update {
+    color: aquamarine;
 }

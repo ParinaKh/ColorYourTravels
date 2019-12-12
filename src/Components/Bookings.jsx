@@ -67,54 +67,63 @@ export default function Bookings(props) {
         />
         <div className="booking-buttons">
           <button
+            className="button-transportation"
             onClick={() =>
               setActiveForm(
                 activeForm === "transportation" ? null : "transportation"
               )
             }
           >
-            +transportation
+            + transportation
           </button>
           <button
+            className="button-accomodation"
             onClick={() =>
               setActiveForm(
                 activeForm === "accomodation" ? null : "accomodation"
               )
             }
           >
-            +accomodation
+            + accomodation
           </button>
           <button
+            className="button-activity"
             onClick={() =>
               setActiveForm(activeForm === "activity" ? null : "activity")
             }
           >
-            +activity
+            + activity
           </button>
         </div>
 
         <div className="booking-planner">
-          {activeForm === "transportation" && (
-            <TransportationForm
-              creationClbk={addCard}
-              itinerary={itinerary}
-              stepCount={stepCount}
-            />
-          )}
-          {activeForm === "accomodation" && (
-            <AccomodationForm
-              itinerary={itinerary}
-              stepCount={stepCount}
-              creationClbk={addCard}
-            />
-          )}
-          {activeForm === "activity" && (
-            <ActivityForm
-              creationClbk={addCard}
-              itinerary={itinerary}
-              stepCount={stepCount}
-            />
-          )}
+          <div>
+            {activeForm === "transportation" && (
+              <TransportationForm
+                creationClbk={addCard}
+                itinerary={itinerary}
+                stepCount={stepCount}
+              />
+            )}
+          </div>
+          <div>
+            {activeForm === "accomodation" && (
+              <AccomodationForm
+                itinerary={itinerary}
+                stepCount={stepCount}
+                creationClbk={addCard}
+              />
+            )}
+          </div>
+          <div>
+            {activeForm === "activity" && (
+              <ActivityForm
+                creationClbk={addCard}
+                itinerary={itinerary}
+                stepCount={stepCount}
+              />
+            )}
+          </div>
         </div>
         <div className="cards-container">
           {cards.map((c, i) => {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import APIHandler from "./../api/ApiHandler";
 import "../Styles/ItineraryPlanner.css";
+import FormatDate from "./FormatDate";
 
 const AccomodationCard = ({ resourceId }) => {
   const [accomodation, setAccomodation] = useState(null);
@@ -19,7 +20,7 @@ const AccomodationCard = ({ resourceId }) => {
   if (!accomodation) return null;
 
   return (
-    <div className="accomodation-card">
+    <div className="accomodation-cards">
       {/* {Boolean(accomodation.length) === false && (
         <p>no accomodations yet</p>
       )} */}
@@ -28,8 +29,9 @@ const AccomodationCard = ({ resourceId }) => {
         {accomodation.name}
         {accomodation.address}
         {accomodation.bookingRef}
-        {accomodation.checkIn}
-        {accomodation.checkOut}
+
+        <FormatDate date={accomodation.checkIn} />
+        <FormatDate date={accomodation.checkOut} />
       </div>
     </div>
   );

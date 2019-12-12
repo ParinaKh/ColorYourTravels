@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/AllmyItineraries.css";
+import FormatDate from "./FormatDate";
 import axios from "axios";
 
 function ItineraryCards(props) {
@@ -27,8 +28,13 @@ function ItineraryCards(props) {
           <div className="itinerary-card">
             <p className="title-card">{itinerary.title}</p>
             <p className="description-card">{itinerary.description}</p>
-            <p className="title-card">{itinerary.startDate}</p>
-            <p className="title-card">{itinerary.endDate}</p>
+            <p className="date-card">
+              {" "}
+              From
+              <FormatDate date={itinerary.startDate} /> to
+              <FormatDate date={itinerary.endDate} />
+            </p>
+            <img src={itinerary.itineraryImage}></img>
             {/* {itinerary.steps.map((step, i)=>(
 
           ))} */}
