@@ -28,7 +28,7 @@ export default class Signup extends Component {
 
     try {
       await APIHandler.post("/signup", fd);
-      this.props.history.push("/Sign-in");
+      this.props.history.push("/itineraryplanner");
     } catch (err) {
       console.error(err);
     }
