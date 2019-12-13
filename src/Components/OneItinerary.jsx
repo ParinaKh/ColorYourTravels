@@ -9,7 +9,8 @@ export default function OneItinerary(props) {
   useEffect(() => {
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_URL}/itinerary/${props.match.params.id}`
+        `${process.env.REACT_APP_BACKEND_URL}/itinerary/${props.match.params.id}`,
+        { withCredentials: true }
       )
 
       .then(apiRes => {

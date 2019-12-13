@@ -40,7 +40,8 @@ function Transportation({ itinerary, stepCount, setItinerary, creationClbk }) {
           itinerary._id +
           "/" +
           itinerary.steps[stepCount]._id,
-        transport
+        transport,
+        { withCredentials: true }
       )
       .then(res => {
         console.log("itinerary", res.data);

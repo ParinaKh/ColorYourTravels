@@ -9,7 +9,9 @@ function ItineraryCards(props) {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BACKEND_URL + "/itinerary")
+      .get(process.env.REACT_APP_BACKEND_URL + "/itinerary", {
+        withCredentials: true
+      })
 
       .then(apiRes => {
         console.log(apiRes, "Guten tag");
