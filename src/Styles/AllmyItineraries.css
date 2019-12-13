@@ -24,13 +24,14 @@
     font-size: 16px;
     box-shadow: grey 0.2em 0.1em 0.2em;
     border-radius: 5px;
-
+    text-decoration: none
 }
 
 .title-card {
     text-decoration: none;
-    color: black;
-
+    color: #FF6161;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .itinerary-card img {
@@ -40,6 +41,22 @@
 
 .description-card {
     text-decoration: none;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: bold;
+    color: black;
+
+}
+
+.date-card {
+    color: black;
+    font-size: 14px
+}
+
+.description-one-card {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .one-itinerary img {
@@ -71,5 +88,5 @@
 }
 
 .link-update {
-    color: aquamarine;
+    color: cadetblue
 }

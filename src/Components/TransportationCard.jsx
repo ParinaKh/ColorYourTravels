@@ -25,13 +25,13 @@ const TransportationCard = ({ resourceId }) => {
       value={transportation}
       onSubmit={handleSelect}
     >
-      <div>{transportation.transport} </div>
-      <div>From {transportation.startPoint}</div>
-      <div>to {transportation.endPoint}</div>
-      <div>
+      <p>{transportation.transport} </p>
+      <p>From {transportation.startPoint}</p>
+      <p>to {transportation.endPoint}</p>
+      <p>
         Departure on <FormatDate date={transportation.startDate} />
-      </div>
-      <div>Booking Ref : {transportation.bookingRef}</div>
+      </p>
+      <p>Booking Ref : {transportation.bookingRef}</p>
     </div>
   );
 };

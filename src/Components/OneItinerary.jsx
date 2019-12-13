@@ -27,7 +27,7 @@ export default function OneItinerary(props) {
         <img src={oneItinerary.itineraryImage}></img>
         <div>
           <h1>{oneItinerary.title}</h1>
-          <p>{oneItinerary.description}</p>
+          <p className="description-one-card">{oneItinerary.description}</p>
           <p>{oneItinerary.startDate}</p>
           <p>{oneItinerary.endDate}</p>
           {oneItinerary.steps.map((oneStep, i) => (

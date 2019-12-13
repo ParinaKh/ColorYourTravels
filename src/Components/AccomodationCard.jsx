@@ -26,12 +26,18 @@ const AccomodationCard = ({ resourceId }) => {
       )} */}
 
       <div className="accomodation" onSubmit={handleSelect}>
-        {accomodation.name}
-        {accomodation.address}
-        {accomodation.bookingRef}
+        <p> Hotel :{accomodation.name}</p>
+        <p>{accomodation.address}</p>
+        <p> BookingRef : {accomodation.bookingRef}</p>
 
-        <FormatDate date={accomodation.checkIn} />
-        <FormatDate date={accomodation.checkOut} />
+        <p>
+          {" "}
+          CheckIn : <FormatDate date={accomodation.checkIn} />
+        </p>
+        <p>
+          {" "}
+          CheckOut : <FormatDate date={accomodation.checkOut} />
+        </p>
       </div>
     </div>
   );

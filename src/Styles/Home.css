@@ -54,11 +54,6 @@
   box-shadow: black 0.2em 0.1em 0.2em;
 }
 
-<<<<<<< HEAD
-=======
-/* .section1 {} */
-
->>>>>>> b7c6ee7eb7843e55c5d165b7a9376c916ed6b1ce
 .all-containers {
   display: flex;
   flex-direction: row;
@@ -79,8 +74,9 @@
 
 .icon {
   width: 50px;
-  height:50px;
+  height: 50px;
 }
+
 /* Début de css du slider : */
 
 .slide-container {
@@ -88,7 +84,7 @@
   margin: auto;
 }
 
-.each-slide > div {
+.each-slide>div {
   display: flex;
   align-items: center;
   justify-content: center;
