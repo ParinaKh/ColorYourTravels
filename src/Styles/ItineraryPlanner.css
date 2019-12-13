@@ -109,7 +109,7 @@ input {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-column-gap: 10px;
-  grid-template-rows: 50px 50px 50px 1fr;
+  grid-template-rows: 50px 50px 50px 120px 1fr;
   height: 100vh;
   justify-content: center;
   padding: 20px;
@@ -189,7 +189,6 @@ input {
 .transportation-cards {
   background: #e9f8f2;
   color: black;
-  grid-row: 4;
   grid-column: 1;
   margin: 3px;
   border-radius: 5px;
@@ -202,7 +201,6 @@ input {
 .accomodation-cards {
   background: #fffdd8;
   color: black;
-  grid-row: 4;
   grid-column: 2;
   margin: 3px;
   border-radius: 5px;
@@ -220,7 +218,6 @@ input {
 .activity-cards {
   background: #ffdfc6;
   color: black;
-  grid-row: 4;
   grid-column: 3;
   margin: 3px;
   border-radius: 5px;

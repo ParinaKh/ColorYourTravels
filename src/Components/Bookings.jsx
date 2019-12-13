@@ -28,9 +28,8 @@ export default function Bookings(props) {
         `${process.env.REACT_APP_BACKEND_URL}/itinerary/${props.match.params.id}`
       )
       .then(apiRes => {
-        console.log(apiRes);
-
         setItinerary(apiRes.data);
+        addCards(apiRes.data);
       })
       .catch(apiErr => console.error(apiErr));
     return () => {};
@@ -40,17 +39,21 @@ export default function Bookings(props) {
     if (!cards.length && Object.keys(itinerary).length) addCards();
   }, [itinerary, cards]);
 
-  const addCards = () => {
-    console.log("todo add cards", itinerary.steps[stepCount]);
+  const addCards = infos => {
+    const copy = [...cards];
+    copy.push(
+      { type: "transportation", infos: infos },
+      { type: "accomodation", infos: infos },
+      { type: "activity", infos: infos }
+    );
+    setCards(copy);
   };
 
   const addCard = infos => {
     setItinerary(infos);
-    const copy = [...cards];
-    copy.push({
-      type: activeForm,
-      infos
-    });
+    const copy = cards.map(c =>
+      c.type === activeForm ? { type: activeForm, infos } : c
+    );
     setCards(copy);
     setActiveForm(null);
   };
@@ -128,9 +131,10 @@ export default function Bookings(props) {
         <div className="cards-container">
           {cards.map((c, i) => {
             const oneStepValues = itinerary.steps[stepCount][c.type];
-            const currentValue = oneStepValues[oneStepValues.length - 1];
             const CurrentCard = availableCards[c.type];
-            return <CurrentCard key={i} resourceId={currentValue} />;
+            return oneStepValues.map((resourceId, k) => (
+              <CurrentCard key={k + 100} resourceId={resourceId} />
+            ));
           })}
         </div>
       </div>
