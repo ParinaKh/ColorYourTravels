@@ -3,16 +3,20 @@ import { Slide } from "react-slideshow-image";
 import { withRouter } from "react-router-dom";
 
 const slideImages = [
-  "./slider/01.png",
-  "./slider/1.jpg",
-  "./slider/2.jpg",
-  "./slider/3.jpg",
-  "./slider/4.jpg",
-  "./slider/5.jpg",
-  "./slider/6.jpg",
-  "./slider/7.jpg",
-  "./slider/8.jpg",
-  "./slider/9.jpg"
+  "./slider/1.png",
+  "./slider/2.png",
+  "./slider/3.png",
+  "./slider/4.png",
+  "./slider/5.png",
+  "./slider/6.png",
+  "./slider/7.png",
+  "./slider/8.png",
+  "./slider/9.png",
+  "./slider/10.png",
+  "./slider/11.png",
+  "./slider/12.png",
+  "./slider/13.png",
+  "./slider/14.png"
 ];
 
 const properties = {
@@ -59,6 +63,21 @@ const Slideshow = () => {
         </div>
         <div className="each-slide">
           <div style={{ backgroundImage: `url(${slideImages[9]})` }}></div>
+        </div>
+        <div className="each-slide">
+          <div style={{ backgroundImage: `url(${slideImages[10]})` }}></div>
+        </div>
+        <div className="each-slide">
+          <div style={{ backgroundImage: `url(${slideImages[11]})` }}></div>
+        </div>
+        <div className="each-slide">
+          <div style={{ backgroundImage: `url(${slideImages[12]})` }}></div>
+        </div>
+        <div className="each-slide">
+          <div style={{ backgroundImage: `url(${slideImages[13]})` }}></div>
+        </div>
+        <div className="each-slide">
+          <div style={{ backgroundImage: `url(${slideImages[14]})` }}></div>
         </div>
       </Slide>
     </div>
