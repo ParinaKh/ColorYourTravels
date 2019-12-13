@@ -16,7 +16,11 @@ export default function Home() {
           <h1 className="title">SIGN UP TO START THE JOURNEY</h1>
         </Link>
         <Slide />
-
+        <div className="icon-container">
+          <img className="icon" src={map} alt="map" />
+          <img className="icon" src={pencil} alt="pencil" />
+          <img className="icon" id="booking" src={booking} alt="booking" />
+        </div>
         <div className="all-containers">
           <div className="text-container">
             <h2 className="home-subtitle">Get a personalized plan</h2>
@@ -30,11 +34,6 @@ export default function Home() {
             <h2 className="home-subtitle">Manage it</h2>
             <p>All your bookings in one place</p>
           </div>
-        </div>
-        <div className="icon-container">
-          <img className="icon" src={map} alt="map" />
-          <img className="icon" src={pencil} alt="pencil" />
-          <img className="icon" src={booking} alt="booking" />
         </div>
       </section>
     </div>

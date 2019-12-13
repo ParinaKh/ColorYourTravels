@@ -69,7 +69,8 @@
 .icon-container {
   display: flex;
   justify-content: space-around;
-  margin-top: -65px;
+  margin-top: 75px;
+  margin-bottom: -58px;
 }
 
 .icon {
@@ -77,14 +78,18 @@
   height: 50px;
 }
 
+#booking {
+  margin-right: 31px;
+}
+
 /* Début de css du slider : */
 
 .slide-container {
-  width: 67.5%;
+  width: 100%;
   margin: auto;
 }
 
-.each-slide>div {
+.each-slide > div {
   display: flex;
   align-items: center;
   justify-content: center;
