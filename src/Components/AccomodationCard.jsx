@@ -21,20 +21,19 @@ const AccomodationCard = ({ resourceId }) => {
 
   return (
     <div className="accomodation-cards">
-      {/* {Boolean(accomodation.length) === false && (
-        <p>no accomodations yet</p>
-      )} */}
-
       <div className="accomodation" onSubmit={handleSelect}>
-        <p> Hotel :{accomodation.name}</p>
-        <p>{accomodation.address}</p>
-        <p> BookingRef : {accomodation.bookingRef}</p>
+        <p id="p-text" class="title-booking-cards">
+          {" "}
+          Hotel :{accomodation.name}
+        </p>
+        <p id="p-text">{accomodation.address}</p>
+        <p id="p-text"> BookingRef : {accomodation.bookingRef}</p>
 
-        <p>
+        <p id="p-text">
           {" "}
           CheckIn : <FormatDate date={accomodation.checkIn} />
         </p>
-        <p>
+        <p id="p-text">
           {" "}
           CheckOut : <FormatDate date={accomodation.checkOut} />
         </p>

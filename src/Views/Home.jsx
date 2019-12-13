@@ -24,15 +24,15 @@ export default function Home() {
         <div className="all-containers">
           <div className="text-container">
             <h2 className="home-subtitle">Get a personalized plan</h2>
-            <p>A complete day by day Itinerary based on your preferences</p>
+            <div>A complete day by day Itinerary based on your preferences</div>
           </div>
           <div className="text-container">
             <h2 className="home-subtitle">Customize it</h2>
-            <p>Refine your plan.</p>
+            <div>Refine your plan</div>
           </div>
           <div className="text-container">
             <h2 className="home-subtitle">Manage it</h2>
-            <p>All your bookings in one place</p>
+            <div>All your bookings in one place</div>
           </div>
         </div>
       </section>

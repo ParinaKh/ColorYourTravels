@@ -24,10 +24,13 @@ const ActivityCard = ({ resourceId }) => {
       )} */}
 
       <div className="activity" value={activity} onSubmit={handleSelect}>
-        <p> {activity.description}</p>
-        <p> Address :{activity.address}</p>
-        <p> BookingRef : {activity.bookingRef}</p>
-        <p>
+        <p id="p-text" class="title-booking-cards">
+          {" "}
+          {activity.description}
+        </p>
+        <p id="p-text"> Address :{activity.address}</p>
+        <p id="p-text"> BookingRef : {activity.bookingRef}</p>
+        <p id="p-text">
           {" "}
           Date : <FormatDate date={activity.startDate} />
         </p>

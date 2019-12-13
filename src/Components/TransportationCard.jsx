@@ -20,18 +20,21 @@ const TransportationCard = ({ resourceId }) => {
   if (!transportation) return null;
 
   return (
-    <div
-      className="transportation-cards"
-      value={transportation}
-      onSubmit={handleSelect}
-    >
-      <p>{transportation.transport} </p>
-      <p>From {transportation.startPoint}</p>
-      <p>to {transportation.endPoint}</p>
-      <p>
-        Departure on <FormatDate date={transportation.startDate} />
-      </p>
-      <p>Booking Ref : {transportation.bookingRef}</p>
+    <div className="transportation-cards">
+      <div
+        className="transportation"
+        value={transportation}
+        onSubmit={handleSelect}
+      >
+        <p id="p-text">{transportation.transport} </p>
+        <p id="p-text" class="title-booking-cards">
+          From {transportation.startPoint} to {transportation.endPoint}
+        </p>
+        <p id="p-text">
+          Departure on <FormatDate date={transportation.startDate} />
+        </p>
+        <p id="p-text">Booking Ref : {transportation.bookingRef}</p>
+      </div>
     </div>
   );
 };

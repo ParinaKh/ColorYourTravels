@@ -77,7 +77,7 @@ export default function Bookings(props) {
               )
             }
           >
-            + transportation
+            Add transportation
           </button>
           <button
             className="button-accomodation"
@@ -87,7 +87,7 @@ export default function Bookings(props) {
               )
             }
           >
-            + accomodation
+            Add accomodation
           </button>
           <button
             className="button-activity"
@@ -95,7 +95,7 @@ export default function Bookings(props) {
               setActiveForm(activeForm === "activity" ? null : "activity")
             }
           >
-            + activity
+            Add activity
           </button>
         </div>
 
